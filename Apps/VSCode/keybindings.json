@@ -1,0 +1,27 @@
+// Add/overwrite existing key bindings in VSCode
+
+[
+  // Switch terminals
+  { "key": "cmd+shift+k", "command": "workbench.action.terminal.focusNext" },
+  {
+    "key": "cmd+shift+j",
+    "command": "workbench.action.terminal.focusPrevious"
+  },
+  {
+    "key": "cmd+k cmd+k",
+    "command": "workbench.action.openGlobalKeybindingsFile"
+  },
+
+  // Show keybindings as json
+  {
+    "key": "cmd+k cmd+k",
+    "command": "-editor.action.defineKeybinding",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'jsonc'"
+  },
+
+  // Open settings json
+  {
+    "key": "cmd+k cmd+.",
+    "command": "workbench.action.openSettingsJson"
+  }
+]

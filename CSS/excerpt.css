@@ -1,0 +1,15 @@
+/* Cut extra text via CSS (one line only) */
+
+p {
+  /* this prevents line breaks */
+  white-space: nowrap;
+  /* this hides text that doesnt fit within the div */
+  overflow: hidden;
+  /* this adds the ellipsis to the cutoff point */
+  text-overflow: ellipsis;
+  /* Also make text box go full width, with padding */
+  width: 100%;
+  padding: 1rem;
+}
+
+/* Also add the new max char thing */

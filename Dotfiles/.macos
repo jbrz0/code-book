@@ -1,0 +1,191 @@
+#!/usr/bin/env bash
+
+# Before running, make sure
+
+# Run straight from Github:
+# curl https://raw.githubusercontent.com/oddscenes/code-book/Dotfiles/master/.macos | bash
+
+###############################################################################
+# MACOS Setup Script
+###############################################################################
+
+echo "Hello $(whoami)! Let's get your mac set up."
+
+# //* Pre-Setup Stuff
+echo "🟦⬜️⬜️⬜️⬜️⬜️⬜️ Pre-Setup Stuff"
+
+# Ask for the admin password upfront
+sudo -v
+
+# Close any open System Preferences panes, so they don't override
+osascript -e 'tell application "System Preferences" to quit'
+
+# //* Setup Package Management & Files
+echo "🟦🟦⬜️⬜️⬜️⬜️⬜️ Setup Package Managers & Files"
+
+# Create a code folder for projects
+
+echo "Making an abode for your code: 🏡 ${HOME}/code"
+mkdir -p "${HOME}/code"
+
+# Install homebrew - https://brew.sh
+
+echo "Installing: 📦 Homebrew (OS package manager)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+echo "Updating: 👐 Homebrew (OS package manager)"
+brew update
+
+# Install Homebrew-App Store connection
+
+echo "Installing: 🌉 Mac-App-Store Bridge (M.A.S.)"
+# https://github.com/mas-cli/mas
+brew install mas
+
+# Ensure we are signed into iCloud & App Store
+read -p "Make sure you're signed into iCloud & App Store
+Hit (y) to confirm, otherwise go do that now" -n 1 -r
+
+printf "\n"
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  printf "👍 Signed in as: $(mas account), moving along"
+else
+  printf "\n 👎 Go sign in to iCloud/App Store first\n"
+  [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
+fi
+
+# Download applications
+echo "🟦🟦🟦⬜️⬜️⬜️⬜️ Downloading From App Store"
+
+echo "Installing App: 💾 1Password"
+mas install 1333542190
+
+echo "Installing App: 💾 Adblock Plus (Safari)"
+mas install 1432731683
+
+echo "Installing App: 💾 Affinity Photo"
+mas install 824183456
+
+echo "Installing App: 💾 Affinity Designer"
+mas install 824171161
+
+echo "Installing App: 💾 Alfred"
+brew cask install alfred
+
+echo "Installing App: 💾 Amethyst"
+# brew cask install amethyst
+# Maybe use magnet instead
+
+echo "Installing App: 💾 The Clock"
+mas install 488764545
+
+echo "Installing App: 💾 Figma"
+brew cask install figma
+
+echo "Installing App: 💾 GPG Suite"
+brew cask install gpg-suite
+
+echo "Installing App: 💾 Icon Jar"
+brew cask install iconjar
+
+echo "Installing App: 💾 Instapaper (Safari)"
+mas install 1481302432
+
+echo "Installing App: 💾 Iterm2"
+brew cask install iterm2
+
+echo "Installing App: 💾 Magnet"
+mas install 441258766
+
+echo "Installing App: 💾 Microsoft Office"
+brew cask install microsoft-office
+
+echo "Installing App: 💾 Monero Wallet"
+brew cask install monero-wallet
+
+echo "Installing App: 💾 Notion"
+brew cask install notion
+
+echo "Installing App: 💾 Numi"
+brew cask install numi
+
+echo "Installing App: 💾 Postman"
+brew cask install postman
+
+echo "Installing App: 💾 Sip"
+brew cask install sip
+
+echo "Installing App: 💾 Sublime Text"
+brew cask install sublime-text
+
+echo "Installing App: 💾 Things"
+mas install 904280696
+
+echo "Installing App: 💾 VS Code"
+brew cask install visual-studio-code
+
+echo "Installing App: 💾 X Code"
+mas install 497799835
+
+# Download CLI utilities
+echo "🟦🟦🟦🟦⬜️⬜️⬜️ Downloading CLI Utils"
+
+echo "Installing CLI Tool: ⚙️ oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "Installing CLI Tool: ⚙️ wget"
+brew install wget
+
+# Download web tools
+echo "🟦🟦🟦🟦🟦⬜️⬜️ Downloading Web Tools"
+
+# echo "Installing Web Tool: 🌎 Java"
+# brew cask install java # For some legacy apps ?
+
+echo "Installing Web Tool: 🌎 MongoDB"
+brew install mongodb
+
+echo "Installing Web Tool: 🌎 MongoDB Compass"
+brew cask install mongodb-compass
+
+
+echo "Installing Web Tool: 🌎 NVM + NodeJS"
+# https://github.com/nvm-sh/nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+nvm install node
+nvm use node
+
+echo "Installing Web Tool: 🌎 Redis"
+brew install redis
+brew services start redis # Allow redis to start
+
+# Config CLI stuff
+
+echo "Configuring CLI: 👨‍🔬 Setting zsh & .zshrc as default"
+chsh -s /bin/zsh
+source ~/.zshrc
+
+# Install GLOBAL node modules
+echo "🟦🟦🟦🟦🟦🟦⬜️ Install GLOBAL node modules"
+
+# If error when installing npm modules globally
+# "Missing write access to /usr/local/lib/node_modules"
+sudo chown -R $USER /usr/local/lib/node_modules
+
+npm i -g forever
+npm i -g typescript
+npm i -g http-server
+npm i -g alfred-npms
+
+# MacOS Config
+echo "🟦🟦🟦🟦🟦🟦🟦 Adjusting Mac Config"
+
+# Enable best quality bluetooth audio for ALL users
+sudo defaults write bluetoothaudiod "AAC Bitrate" -int 320
+sudo defaults write bluetoothaudiod "AAC max packet size" - int 644
+sudo defaults write bluetoothaudiod "Apple Initial Bitpool" -int  64
+sudo defaults write bluetoothaudiod "Disable AAC codec" -int 0
+sudo defaults write bluetoothaudiod "Enable AAC codec" -bool true
+sudo defaults write bluetoothaudiod "Enable AptX codec" -bool true

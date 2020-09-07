@@ -1,0 +1,136 @@
+{
+  // Main setup settings
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Activate SCARLET protocol (beta)",
+  "window.zoomLevel": 1,
+  // "synthwave84.brightness": 1,
+
+  // Toggle word wrap, but prefer it off mostly
+  // "editor.wordWrap": "on",
+
+  // Handle whitespace
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+
+  // Fonts
+  "editor.fontFamily": "SFMono-Light",
+  "editor.fontSize": 13,
+  "editor.lineHeight": 19,
+  "terminal.integrated.fontFamily": "SFMono-Light",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.lineHeight": 1.15,
+  "workbench.startupEditor": "newUntitledFile",
+
+  // Setup tabs and override
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+
+  // Set a ruler to manage script width
+  "editor.rulers": [
+    80
+  ],
+
+  // Custom theme style overrides
+  // https://marketplace.visualstudio.com/items?itemName=max-SS.cyberpunk
+  // Scarlet Protocol version
+  "workbench.colorCustomizations": {
+    //? Bottom Status Bar
+    "statusBar.background" : "#051126",
+    "statusBar.noFolderBackground" : "#6f13b1",
+    "statusBar.debuggingBackground": "#099ce6",
+
+    //? Code background
+    "editor.background": "#000000",
+
+    //? Ruler color
+    "editorRuler.foreground": "#ff4081",
+
+    //? File text color
+    "list.focusForeground": "#00ebb4",
+    "sideBar.foreground": "#eeeeee",
+
+    //? Panel
+    "panel.background": "#000"
+    // "panelTitle.activeForeground": "#ff0000"
+  },
+
+  // Better comment modifications
+  "better-comments.tags": [
+
+    {
+      "tag": "^",
+      "color": "#fff94c",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    }
+  ],
+
+  // Material Icon add-ons/mods
+  // https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme
+  "material-icon-theme.activeIconPack": "react_redux",
+  "material-icon-theme.files.associations": {
+    "index.js": "3d",
+    "index.css": "3d",
+    "index.scss": "3d",
+    "index.html": "3d",
+    "index.md": "3d",
+    "LISENCE": "Certificate"
+  },
+  "material-icon-theme.folders.associations": {
+    "store": "Redux-actions",
+    "React": "React-components",
+    "Node": "Node",
+    "Git": "Git",
+    "Nginx": "Server",
+    "Vscode": "Vscode",
+    "Ascii": "Stencil",
+    "PostCSS": "Pipe",
+    "System": "Vm",
+    "Copy": "Log",
+    "Alfred": "Font",
+    "Applications": "App",
+    "Types": "Typescript",
+    "Laboratory": "Stack",
+    "Snippets": "Syntax"
+  },
+
+  // Stop asking to update imports when I move a file
+  "javascript.updateImportsOnFileMove.enabled": "never",
+
+  // Default terminal area to right side
+  // "workbench.panel.defaultLocation": "right",
+  // "todo-tree.tree.showScanModeButton": false,
+
+  // Hide "OPEN EDITORS" above explorer
+  "explorer.openEditors.visible": 0
+}

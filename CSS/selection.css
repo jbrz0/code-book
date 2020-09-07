@@ -1,0 +1,24 @@
+/* Text Selection */
+
+/* Everything has selection styling */
+::selection {
+  background: cyan;
+}
+
+/* Or specific elements */
+p::selection {
+  background: cyan;
+}
+
+/*
+Allowed Properties:
+
+color
+background-color
+cursor
+caret-color
+outline and its longhands
+text-decoration and its associated properties
+text-emphasis-color
+text-shadow
+*/

@@ -1,0 +1,14 @@
+# Some useful gitignore defaults
+
+# Dependencies
+node_modules
+
+# NextJS Builds
+.next
+out
+
+# Dev Notes
+todo.md
+
+# MacOS Junk
+.DS_Store
