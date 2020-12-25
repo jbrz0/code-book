@@ -13,3 +13,12 @@ p {
 }
 
 /* Also add the new max char thing */
+
+/* Clamp multiple lines */
+/* webkit prefix is needed for all browsers, oddly */
+p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
