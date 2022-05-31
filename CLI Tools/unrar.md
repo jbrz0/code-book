@@ -5,7 +5,7 @@
 [Homebrew](https://formulae.brew.sh/formula/unrar)
 
 ### Install via Homebrew (macOS)
-`brew install unrar`
+`brew install rar`
 
 ### Expand a package file (zip/rar etc) to current dir
 `unrar x <rar_folder_name>`
