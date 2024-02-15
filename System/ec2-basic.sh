@@ -143,7 +143,8 @@ apt-get update
 
 # Install node version manager (nvm)
 # AWS Doc: https://amzn.to/3etDs5w
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 # Activate nvm
 . ~/.nvm/nvm.sh
@@ -207,6 +208,8 @@ cd /var/www
 mkdir app
 cd app
 
+# clone github repository / install node packages / build and run npm start
+
 # Copy package.json & server.js
 # https://github.com/brz0/labs/tree/master/008-app-basic
 touch package.json && touch server.js
@@ -218,3 +221,6 @@ npm i
 
 # Startup the daemon server
 pm2 start server.js
+
+# !!! add certbot stuff
+https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04

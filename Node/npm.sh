@@ -17,3 +17,15 @@ npm i -g <package-name>
 
 # NPM Location (MacOS)
 /usr/local/lib/node_modules
+
+# Update packages
+
+###  install npm-check-updates globally:
+npm i -g npm-check-updates
+
+### upgrade all the version hints in the package.json file
+ncu -u
+
+### install the updated packages in package.json
+### (for old packages, or re-working) --legacy-peer-deps / --force
+npm i 
